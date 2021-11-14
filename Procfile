@@ -1,1 +1,1 @@
-worker: python Openpyxl_check.py
+worker: python data_curation.py
