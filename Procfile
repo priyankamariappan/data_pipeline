@@ -1,2 +1,1 @@
-web: python data_curation.py
-worker: python data_curation.py
+web: sh streamlit_setup.sh && streamlit run data_curation.py
