@@ -7,7 +7,7 @@ import string
 import pandas as pd
 from openpyxl import Workbook
 from autocorrect import Speller
-# import pickle
+import pickle
 
 # pd.show_versions()
 # inputPath = st.text_input(label='Enter the input excel file path')
@@ -111,6 +111,7 @@ if File is not None:
 
         read_file = pd.read_excel(outCSVPath + outputExcel, sheet_name='Sheet')
         read_file.to_csv(outCSVPath + outputCSV, encoding='utf-8', index=None, header=True)
+        read_file.to_pickle('Processed.pickle')
 
     else:
         st.markdown("Please provide a output file path")
