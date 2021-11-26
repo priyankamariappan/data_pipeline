@@ -85,48 +85,48 @@ if File is not None:
         else:
             os.mkdir(path)
             outputPath = 'D:\\SER\\'
+        
+        # outputPath = 'D:\\SERS\\5103 Indegenious\\'
+        if outputPath:
+            outputPath = outputPath + "\\"
+            outCSVPath = outputPath.replace("\\", "/")
+            # outCSVPath = 'D:/SERS/5103 Indegenious/'
+            outputExcel = 'Processed takeaways' + '.xlsx'
+            outputCSV = 'Processed takeaways' + '.csv'
+
+            myWorkbook.save(outputPath + outputExcel)
+
+            # spell check with autocorrect
+            check = Speller(lang='en')
+            cList = []
+
+            for i in range(len(myList)):
+                txt = myList[i]
+                corrected = check(txt)
+                cList.append(corrected)
+
+            # print(cList)
+
+            j = 0
+            for i in range(2, len(myList) + 2):
+                cellref = mySheet.cell(row=i, column=2)
+                cellref.value = cList[j]
+                j = j + 1
+
+            k = 000
+            # print(k)
+            for i in range(2, len(myList) + 2):
+                cellref = mySheet.cell(row=i, column=1)
+                k = k + 1
+                cellref.value = "A" + str(k)
+
+            myWorkbook.save(outputPath + outputExcel)
+
+            read_file = pd.read_excel(outCSVPath + outputExcel, sheet_name='Sheet')
+            read_file.to_csv(outCSVPath + outputCSV, encoding='utf-8', index=None, header=True)
+            read_file.to_pickle('Processed.pickle')
     except OSError as error:
         st.markdown(error)
-
-    # outputPath = 'D:\\SERS\\5103 Indegenious\\'
-    if outputPath:
-        outputPath = outputPath+"\\"
-        outCSVPath = outputPath.replace("\\", "/")
-        # outCSVPath = 'D:/SERS/5103 Indegenious/'
-        outputExcel = 'Processed takeaways' + '.xlsx'
-        outputCSV = 'Processed takeaways' + '.csv'
-
-        myWorkbook.save(outputPath + outputExcel)
-
-        # spell check with autocorrect
-        check = Speller(lang='en')
-        cList = []
-
-        for i in range(len(myList)):
-            txt = myList[i]
-            corrected = check(txt)
-            cList.append(corrected)
-
-        # print(cList)
-
-        j = 0
-        for i in range(2, len(myList) + 2):
-            cellref = mySheet.cell(row=i, column=2)
-            cellref.value = cList[j]
-            j = j + 1
-
-        k = 000
-        # print(k)
-        for i in range(2, len(myList) + 2):
-            cellref = mySheet.cell(row=i, column=1)
-            k = k + 1
-            cellref.value = "A" + str(k)
-
-        myWorkbook.save(outputPath + outputExcel)
-
-        read_file = pd.read_excel(outCSVPath + outputExcel, sheet_name='Sheet')
-        read_file.to_csv(outCSVPath + outputCSV, encoding='utf-8', index=None, header=True)
-        read_file.to_pickle('Processed.pickle')
 
     else:
         st.markdown("Please provide a output file path")
