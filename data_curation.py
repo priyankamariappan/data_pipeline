@@ -94,7 +94,7 @@ if File is not None:
         #     os.mkdir(r"D:\SER")
         #     outputPath = 'D:\\SER'
         does_path_exist = os.path.exists(outputPath)
-        print("PATH EXIST" + does_path_exist)
+        print("does path exists {}".format(does_path_exist))
         if not does_path_exist:
             os.mkdir(outputPath)
 
