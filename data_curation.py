@@ -79,7 +79,7 @@ if File is not None:
     mySheet["A1"] = "name"
     mySheet["B1"] = "content"
 
-    base_path = os.path.dirname(os.getcwd())
+    base_path = os.path.dirname(os.path.abspath(__file__))
 
     outputPath = base_path+'/SER'
 
