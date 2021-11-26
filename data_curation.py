@@ -78,17 +78,17 @@ if File is not None:
     mySheet["B1"] = "content"
 
     try:
-        # directory = "SER"
-        # parent_dir = "D:\\"
-        # path = os.path.join(parent_dir, directory)
-        # print(os.path.exists(path))
-        # if os.path.exists(path):
-        #     outputPath = 'D:\\SER'
-        # else:
-        #     os.mkdir(path)
-        #     outputPath = 'D:\\SER'
+        directory = "SER"
+        parent_dir = "D:\\"
+        path = os.path.join(parent_dir, directory)
+        print(os.path.exists(path))
+        if os.path.exists(path):
+            outputPath = 'D:\\SER'
+        else:
+            os.mkdir(path)
+            outputPath = 'D:\\SER'
 
-        outputPath = 'C:'
+        #outputPath = 'C:'
 
         # outputPath = 'D:\\SERS\\5103 Indegenious\\'
         if outputPath:
