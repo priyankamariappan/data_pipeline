@@ -77,7 +77,7 @@ if File is not None:
 
     try:
         directory = "SER"
-        parent_dir = "D:\"
+        parent_dir = "D:\\"
         path = os.path.join(parent_dir, directory)
         print(os.path.exists(path))
         if os.path.exists(path):
