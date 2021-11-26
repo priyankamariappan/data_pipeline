@@ -110,6 +110,7 @@ if File is not None:
             outputCSV = 'Processed takeaways' + '.csv'
 
             myWorkbook.save(outputPath + outputExcel)
+            st.markdown("i saved workBook 1 at path:"+outputPath + outputExcel)
 
             # spell check with autocorrect
             check = Speller(lang='en')
@@ -136,9 +137,12 @@ if File is not None:
                 cellref.value = "A" + str(k)
 
             myWorkbook.save(outputPath + outputExcel)
+            st.markdown("i saved workBook 2 at path:"+outputPath + outputExcel)
 
             read_file = pd.read_excel(outCSVPath + outputExcel, sheet_name='Sheet')
+            st.markdown("i read the excel cool.")
             read_file.to_csv(outCSVPath + outputCSV, encoding='utf-8', index=None, header=True)
+            st.markdown("i converted to csv")
             # st.download_button(label="Download data as CSV", data=read_file, file_name='Processed takeaways.csv',mime='text/csv')
 
             def download_link_from_csv(csv, file_name, title="Download"):
