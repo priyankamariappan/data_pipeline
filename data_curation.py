@@ -83,10 +83,10 @@ if File is not None:
         path = os.path.join(parent_dir, directory)
         print(os.path.exists(path))
         if os.path.exists(path):
-            outputPath = 'D:\\SER\\'
+            outputPath = 'D:\\SER'
         else:
             os.mkdir(path)
-            outputPath = 'D:\\SER\\'
+            outputPath = 'D:\\SER'
 
         # outputPath = 'D:\\SERS\\5103 Indegenious\\'
         if outputPath:
