@@ -80,9 +80,9 @@ if File is not None:
     mySheet["B1"] = "content"
 
     base_path = os.path.dirname(os.getcwd())
-
+    print("This IS THE BASE PATH" + base_path)
     outputPath = base_path+'/SER'
-
+    
     try:
 #         directory = "SER"
 #         parent_dir = "D:\\"
@@ -93,8 +93,9 @@ if File is not None:
         # else:
         #     os.mkdir(r"D:\SER")
         #     outputPath = 'D:\\SER'
-
-        if not os.path.exists(outputPath):
+        does_path_exist = os.path.exists(outputPath)
+        print("PATH EXIST" + does_path_exist)
+        if not does_path_exist:
             os.mkdir(outputPath)
 
         #outputPath = 'C:'
