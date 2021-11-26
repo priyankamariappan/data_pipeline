@@ -128,7 +128,8 @@ if File is not None:
         else:
             st.markdown("Error in output path")
     except OSError as error:
-        st.markdown("Error during folder creation"+error)
+        st.markdown(error)
+        st.markdown("Error during folder creation")
 
 else:
     st.stop()
