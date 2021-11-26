@@ -10,6 +10,8 @@ from autocorrect import Speller
 import pickle
 import os.path
 from os import path
+import time
+import base64
 
 # pd.show_versions()
 # inputPath = st.text_input(label='Enter the input excel file path')
@@ -124,6 +126,17 @@ if File is not None:
 
             read_file = pd.read_excel(outCSVPath + outputExcel, sheet_name='Sheet')
             read_file.to_csv(outCSVPath + outputCSV, encoding='utf-8', index=None, header=True)
+            # st.download_button(label="Download data as CSV", data=read_file, file_name='Processed takeaways.csv',mime='text/csv')
+
+            def download_link_from_csv(csv, file_name, title="Download"):
+                b64 = base64.b64encode(csv.encode()).decode()  # some strings <-> bytes conversions necessary here
+                href = "<a href='data:file/csv;base64,{}' download='{}'>{}</a>".format(b64, file_name, title)
+                st.markdown(href, unsafe_allow_html=True)
+
+
+            timestr = time.strftime('%Y%m%d-%H%M%S')
+            download_link_from_csv(read_file.to_csv(index=False,encoding='utf-8'), "Processed takeaways {}.csv".format(timestr), "Download processed takeaways")
+
             read_file.to_pickle('Processed.pickle')
         else:
             st.markdown("Error in output path")
@@ -133,5 +146,3 @@ if File is not None:
 
 else:
     st.stop()
-    
- 
