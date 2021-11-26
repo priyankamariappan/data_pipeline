@@ -8,6 +8,8 @@ import pandas as pd
 from openpyxl import Workbook
 from autocorrect import Speller
 import pickle
+import os.path
+from os import path
 
 # pd.show_versions()
 # inputPath = st.text_input(label='Enter the input excel file path')
@@ -18,7 +20,7 @@ File = st.file_uploader("Input excel file", type="xlsx")
 
 if File is not None:
     st.markdown("File uploaded")
-    outputPath = st.text_input(label='Enter the output file path')
+    # outputPath = st.text_input(label='Enter the output file path')
     wb_obj = openpyxl.load_workbook(File)
     sheet_obj = wb_obj.active
 
@@ -72,6 +74,19 @@ if File is not None:
 
     mySheet["A1"] = "name"
     mySheet["B1"] = "content"
+
+    try:
+        directory = "SER"
+        parent_dir = "D:/"
+        path = os.path.join(parent_dir, directory)
+        print(os.path.exists(path))
+        if os.path.exists(path):
+            outputPath = 'D:\\SER\\'
+        else:
+            os.mkdir(path)
+            outputPath = 'D:\\SER\\'
+    except OSError as error:
+        st.markdown(error)
 
     # outputPath = 'D:\\SERS\\5103 Indegenious\\'
     if outputPath:
