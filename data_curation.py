@@ -81,8 +81,7 @@ if File is not None:
 
     base_path = os.path.dirname(os.getcwd())
     outputPath = base_path+'/SER'
-    st.markdown("This IS THE BASE PATH" + outputPath)
-
+    
     try:
 #         directory = "SER"
 #         parent_dir = "D:\\"
@@ -94,25 +93,21 @@ if File is not None:
         #     os.mkdir(r"D:\SER")
         #     outputPath = 'D:\\SER'
         does_path_exist = os.path.exists(outputPath)
-        st.markdown("does path exists {}".format(does_path_exist))
         if not does_path_exist:
-            st.markdown("i got here, means path does not exist")
             os.mkdir(outputPath)
 
         #outputPath = 'C:'
 
         # outputPath = 'D:\\SERS\\5103 Indegenious\\'
         if outputPath:
-            st.markdown("this is current path "+outputPath)
-            outCSVPath = outputPath
-
+            outputPath = outputPath + "\\"
+            outCSVPath = outputPath.replace("\\", "/")
             # outCSVPath = 'D:/SERS/5103 Indegenious/'
             outputExcel = 'Processed takeaways' + '.xlsx'
             outputCSV = 'Processed takeaways' + '.csv'
 
             myWorkbook.save(outputPath + outputExcel)
-            st.markdown("i saved workBook 1 at path:"+outputPath + outputExcel)
-
+        
             # spell check with autocorrect
             check = Speller(lang='en')
             cList = []
@@ -138,12 +133,10 @@ if File is not None:
                 cellref.value = "A" + str(k)
 
             myWorkbook.save(outputPath + outputExcel)
-            st.markdown("i saved workBook 2 at path:"+outputPath + outputExcel)
-
+        
             read_file = pd.read_excel(outCSVPath + outputExcel, sheet_name='Sheet')
-            st.markdown("i read the excel cool.")
+        
             read_file.to_csv(outCSVPath + outputCSV, encoding='utf-8', index=None, header=True)
-            st.markdown("i converted to csv")
             # st.download_button(label="Download data as CSV", data=read_file, file_name='Processed takeaways.csv',mime='text/csv')
 
             def download_link_from_csv(csv, file_name, title="Download"):
