@@ -80,7 +80,7 @@ if File is not None:
     mySheet["B1"] = "content"
 
     base_path = os.path.dirname(os.getcwd())
-    print("This IS THE BASE PATH" + base_path)
+    st.markdown("This IS THE BASE PATH" + base_path)
     outputPath = base_path+'/SER'
     
     try:
@@ -94,8 +94,9 @@ if File is not None:
         #     os.mkdir(r"D:\SER")
         #     outputPath = 'D:\\SER'
         does_path_exist = os.path.exists(outputPath)
-        print("does path exists {}".format(does_path_exist))
+        st.markdown("does path exists {}".format(does_path_exist))
         if not does_path_exist:
+            st.markdown("i got here, means path does not exist")
             os.mkdir(outputPath)
 
         #outputPath = 'C:'
