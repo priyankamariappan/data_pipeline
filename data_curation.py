@@ -12,6 +12,8 @@ import os.path
 from os import path
 import time
 import base64
+import os
+
 
 # pd.show_versions()
 # inputPath = st.text_input(label='Enter the input excel file path')
@@ -77,7 +79,7 @@ if File is not None:
     mySheet["A1"] = "name"
     mySheet["B1"] = "content"
 
-base_path = os.path.dirname(os.getcwd())
+    base_path = os.path.dirname(os.getcwd())
 
     outputPath = base_path+'/SER'
 
