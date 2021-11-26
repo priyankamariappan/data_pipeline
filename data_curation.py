@@ -103,8 +103,9 @@ if File is not None:
 
         # outputPath = 'D:\\SERS\\5103 Indegenious\\'
         if outputPath:
-            outputPath = outputPath + "\\"
-            outCSVPath = outputPath.replace("\\", "/")
+            st.markdown("this is current path "+outputPath)
+            outCSVPath = outputPath
+
             # outCSVPath = 'D:/SERS/5103 Indegenious/'
             outputExcel = 'Processed takeaways' + '.xlsx'
             outputCSV = 'Processed takeaways' + '.csv'
