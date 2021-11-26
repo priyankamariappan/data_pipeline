@@ -80,9 +80,9 @@ if File is not None:
     mySheet["B1"] = "content"
 
     base_path = os.path.dirname(os.getcwd())
-    st.markdown("This IS THE BASE PATH" + base_path)
     outputPath = base_path+'/SER'
-    
+    st.markdown("This IS THE BASE PATH" + outputPath)
+
     try:
 #         directory = "SER"
 #         parent_dir = "D:\\"
