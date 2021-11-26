@@ -88,7 +88,7 @@ if File is not None:
         #     os.mkdir(path)
         #     outputPath = 'D:\\SER'
 
-        outputPath = 'D:'
+        outputPath = 'C:'
 
         # outputPath = 'D:\\SERS\\5103 Indegenious\\'
         if outputPath:
