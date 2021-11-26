@@ -85,7 +85,7 @@ if File is not None:
         else:
             os.mkdir(path)
             outputPath = 'D:\\SER\\'
-        
+
         # outputPath = 'D:\\SERS\\5103 Indegenious\\'
         if outputPath:
             outputPath = outputPath + "\\"
@@ -125,10 +125,10 @@ if File is not None:
             read_file = pd.read_excel(outCSVPath + outputExcel, sheet_name='Sheet')
             read_file.to_csv(outCSVPath + outputCSV, encoding='utf-8', index=None, header=True)
             read_file.to_pickle('Processed.pickle')
+        else:
+            st.markdown("Error in output path")
     except OSError as error:
         st.markdown(error)
 
-    else:
-        st.markdown("Please provide a output file path")
 else:
     st.stop()
