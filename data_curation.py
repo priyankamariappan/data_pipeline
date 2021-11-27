@@ -83,26 +83,12 @@ if File is not None:
     outputPath = base_path+'/SER'
     
     try:
-#         directory = "SER"
-#         parent_dir = "D:\\"
-#         path = os.path.join(parent_dir, directory)
-#         print(os.path.exists(path))
-        # if os.path.exists(r"D:\SER"):
-        #     outputPath = 'D:\\SER'
-        # else:
-        #     os.mkdir(r"D:\SER")
-        #     outputPath = 'D:\\SER'
         does_path_exist = os.path.exists(outputPath)
         if not does_path_exist:
-            os.mkdir(outputPath)
-
-        #outputPath = 'C:'
-
-        # outputPath = 'D:\\SERS\\5103 Indegenious\\'
+            os.mkdir(outputPath)     
+        
         if outputPath:
-            outCSVPath = outputPath
-
-            # outCSVPath = 'D:/SERS/5103 Indegenious/'
+            outCSVPath = outputPath            
             outputExcel = 'Processed takeaways' + '.xlsx'
             outputCSV = 'Processed takeaways' + '.csv'
 
