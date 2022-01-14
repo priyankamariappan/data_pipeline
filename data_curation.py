@@ -80,6 +80,10 @@ if File is not None:
 
     # print(myList)
     # print(len(myList))
+    for i in myList:
+        if i.upper() == "CONTENT":
+            myList.remove(i)
+    
 
     myWorkbook = openpyxl.Workbook()
     mySheet = myWorkbook.active
