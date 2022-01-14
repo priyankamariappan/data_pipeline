@@ -49,7 +49,7 @@ if File is not None:
         for i in range(2, max_row + 1):
             cell_obj = sheet_obj.cell(row=i, column=2)
             if cell_obj.value is not None and cell_obj.value != '':
-                myList.append(cell_obj.value.capitalize()
+                myList.append(cell_obj.value.capitalize())
     
     if len(myList) == 0:
         st.markdown("Error in input file")
