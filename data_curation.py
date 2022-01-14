@@ -52,9 +52,11 @@ if File is not None:
             cell_obj = sheet_obj.cell(row=i, column=2)
             if cell_obj.value is not None and cell_obj.value != '':
                 myList.append(cell_obj.value.capitalize()
-    else:
+    
+    if myList is None:
         st.markdown("Error in input file")
-                                  
+        st.stop()
+    
     # print(myList)
     # print(len(myList))
     myList.sort()
