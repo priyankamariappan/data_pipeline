@@ -32,28 +32,26 @@ if File is not None:
     # sheet = wb_obj['Sheet0']
     max_row = sheet_obj.max_row
     max_col = sheet_obj.max_column
+    myList = []
 
-    if sheet_obj.cell(row=1, column=1).value.upper() == "RECORDEDDATE":
-        myList = []
+    if sheet_obj.cell(row=1, column=1).value.upper() == "RECORDEDDATE":        
         for i in range(3, max_row + 1):
             for j in range(2, max_col + 1):
                 cell_obj = sheet_obj.cell(row=i, column=j)
                 if cell_obj.value is not None:
                     myList.append(cell_obj.value.capitalize())
-    elif sheet_obj.cell(row=1, column=1).value.upper() == "SECTION #":
-        myList = []
+    elif sheet_obj.cell(row=1, column=1).value.upper() == "SECTION #":        
         for i in range(2, max_row + 1):
             cell_obj = sheet_obj.cell(row=i, column=8)
             if cell_obj.value is not None and cell_obj.value != '':
                 myList.append(cell_obj.value.capitalize())
-    elif sheet_obj.cell(row=1, column=1).value.upper() == "SOURCE.NAME":
-        myList = []
+    elif sheet_obj.cell(row=1, column=1).value.upper() == "SOURCE.NAME":        
         for i in range(2, max_row + 1):
             cell_obj = sheet_obj.cell(row=i, column=2)
             if cell_obj.value is not None and cell_obj.value != '':
                 myList.append(cell_obj.value.capitalize()
     
-    if myList is None:
+    if len(myList) == 0:
         st.markdown("Error in input file")
         st.stop()
     
