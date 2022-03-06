@@ -50,6 +50,12 @@ if File is not None:
             cell_obj = sheet_obj.cell(row=i, column=2)
             if cell_obj.value is not None and cell_obj.value != '':
                 myList.append(cell_obj.value.capitalize())
+    elif sheet_obj.cell(row=1, column=1).value.upper() == "TIMESTAMP":
+        for i in range(2, max_row + 1):
+            for j in range(2, max_col+1):
+                cell_obj = sheet_obj.cell(row=i, column=j)
+                if cell_obj.value is not None:
+                    myList.append(cell_obj.value.capitalize())
     
     if len(myList) == 0:
         st.markdown("Error in input file")
